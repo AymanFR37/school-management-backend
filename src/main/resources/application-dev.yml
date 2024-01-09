@@ -19,6 +19,11 @@ spring:
       ddl-auto: update
     show-sql: true
 
+#to solve this error No serializer found for class org.hibernate.proxy.pojo.bytebuddy.ByteBuddyInterceptor and no properties discovered to create BeanSerializer (to avoid exception, disable SerializationFeature.FAIL_ON_EMPTY_BEANS) (through reference chain: java.util.ArrayList[0]->com.example.school_management.entities.StudentEntity["studentClass"]->com.example.school_management.entities.ClassEntity$HibernateProxy$lrrrtvb1["hibernateLazyInitializer"])
+  jackson:
+    serialization:
+      fail-on-empty-beans: false
+
 logging:
   level:
     org.springframework.web: DEBUG

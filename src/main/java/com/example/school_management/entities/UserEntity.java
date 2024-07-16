@@ -9,7 +9,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Inheritance(strategy = InheritanceType.JOINED)
-@Entity
 @MappedSuperclass
 @Table(name = "users")
 public class UserEntity extends AbstractEntity {

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/attendances")
@@ -22,7 +23,7 @@ public class AttendanceController {
     }
 
     @PostMapping("/recordAttendance")
-    public ResponseEntity<Void> recordAttendance(@RequestBody Long studentId,
+    public ResponseEntity<Void> recordAttendance(@RequestBody UUID studentId,
                                            @RequestBody LocalDate date,
                                            @RequestBody AttendanceStatus attendanceStatus){
         attendanceService.recordAttendance(studentId, date, attendanceStatus);
@@ -30,7 +31,7 @@ public class AttendanceController {
     }
 
     @GetMapping("/student/{studentId}")
-    public List<AttendanceEntity> getStudentAttendance(@PathVariable Long studentId) {
+    public List<AttendanceEntity> getStudentAttendance(@PathVariable UUID studentId) {
         return attendanceService.getStudentAttendance(studentId);
     }
 
@@ -38,7 +39,7 @@ public class AttendanceController {
     public ResponseEntity<byte[]> exportAttendanceReportToPdf(
             @RequestParam(required = false) String startDate,
             @RequestParam(required = false) String endDate,
-            @RequestParam(required = false) Long sectionId) throws DocumentException {
+            @RequestParam(required = false) UUID sectionId) throws DocumentException {
         byte[] pdfContent = attendanceService.exportAttendanceReportToPdf(startDate, endDate, sectionId);
 
         HttpHeaders headers = new HttpHeaders();

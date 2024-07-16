@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/students")
@@ -29,7 +30,7 @@ public class StudentController {
     }
 
     @GetMapping("/student/{id}")
-    public ResponseEntity<StudentEntity> getStudentById(@PathVariable("id") Long id) {
+    public ResponseEntity<StudentEntity> getStudentById(@PathVariable("id") UUID id) {
         return ResponseEntity.ok(studentService.getStudentById(id));
     }
 
@@ -39,19 +40,19 @@ public class StudentController {
     }
 
     @PutMapping("/edit/{id}")
-    public ResponseEntity<StudentEntity> updateStudent(@PathVariable Long id,
+    public ResponseEntity<StudentEntity> updateStudent(@PathVariable UUID id,
                                                        @RequestBody StudentEntity student) {
         return ResponseEntity.ok(studentService.updateStudent(id, student));
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> deleteStudent(@PathVariable("id") Long id) {
+    public ResponseEntity<Void> deleteStudent(@PathVariable("id") UUID id) {
         studentService.deleteStudentById(id);
         return ResponseEntity.noContent().build();
     }
 
     @GetMapping(value = "/{studentId}/pdf", produces = MediaType.APPLICATION_PDF_VALUE)
-    public void generatePdf(@PathVariable Long studentId,
+    public void generatePdf(@PathVariable UUID studentId,
                             HttpServletResponse response) throws IOException, DocumentException {
         StudentEntity student = studentService.getStudentById(studentId);
 

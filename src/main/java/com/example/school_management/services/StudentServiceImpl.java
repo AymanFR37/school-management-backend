@@ -6,6 +6,7 @@ import com.example.school_management.repositories.StudentRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class StudentServiceImpl implements StudentService{
@@ -26,21 +27,21 @@ public class StudentServiceImpl implements StudentService{
     }
 
     @Override
-    public StudentEntity updateStudent(Long id, StudentEntity student) {
+    public StudentEntity updateStudent(UUID id, StudentEntity student) {
         return null;
     }
 
     @Override
-    public void deleteStudentById(Long id) {
+    public void deleteStudentById(UUID id) {
         studentRepository.deleteById(id);
     }
 
     @Override
-    public StudentEntity getStudentById(Long id) {
+    public StudentEntity getStudentById(UUID id) {
         return studentRepository.getStudentById(id);
     }
 
-    public ClassEntity getClassByStudentId(Long studentId) {
+    public ClassEntity getClassByStudentId(UUID studentId) {
         StudentEntity student = studentRepository.findById(studentId).orElse(null);
         if (student != null && student.getSection() != null) {
             return student.getSection().getClassEntity();

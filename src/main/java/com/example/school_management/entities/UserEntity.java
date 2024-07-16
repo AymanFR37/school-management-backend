@@ -1,23 +1,18 @@
 package com.example.school_management.entities;
 
+import com.example.school_management.entities.abstracts.AbstractEntity;
 import jakarta.persistence.*;
 import lombok.*;
-
-import java.time.LocalDate;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Inheritance(strategy = InheritanceType.JOINED)
 @Entity
+@MappedSuperclass
 @Table(name = "users")
-public class UserEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    private String username;
+public class UserEntity extends AbstractEntity {
     private String email;
     private String password;
 

@@ -1,6 +1,6 @@
 package com.example.school_management.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.example.school_management.entities.abstracts.AbstractEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -14,11 +14,8 @@ import java.util.List;
 @ToString
 @Entity
 @Table(name = "sections")
-public class SectionEntity {
+public class SectionEntity extends AbstractEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     private String name;
 
     @OneToMany

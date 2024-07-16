@@ -1,6 +1,6 @@
 package com.example.school_management.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.example.school_management.entities.abstracts.AbstractEntity;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -10,14 +10,10 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Entity
 @Table(name = "classes")
-public class ClassEntity {
+public class ClassEntity extends AbstractEntity {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
     private String name;
     @OneToMany
     private List<StudentEntity> students;

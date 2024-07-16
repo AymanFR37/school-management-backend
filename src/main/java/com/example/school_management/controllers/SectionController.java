@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/sections")
@@ -30,13 +31,13 @@ public class SectionController {
     }
 
     @PutMapping("/update/{id}")
-    public ResponseEntity<SectionEntity> update(@PathVariable int id,@RequestBody SectionEntity section){
+    public ResponseEntity<SectionEntity> update(@PathVariable UUID id, @RequestBody SectionEntity section){
         SectionEntity updateClass = sectionService.updateSection(id, section);
         return ResponseEntity.ok(updateClass);
     }
 
     @DeleteMapping("/delete/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id){
+    public ResponseEntity<Void> delete(@PathVariable UUID id){
         sectionService.deleteSectionById(id);
         return ResponseEntity.noContent().build();
     }

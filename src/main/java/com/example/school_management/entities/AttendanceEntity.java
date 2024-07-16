@@ -1,5 +1,6 @@
 package com.example.school_management.entities;
 
+import com.example.school_management.entities.abstracts.AbstractEntity;
 import com.example.school_management.enums.AttendanceStatus;
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,13 +11,10 @@ import java.time.LocalDate;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Entity
 @Table(name = "attendances")
-public class AttendanceEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class AttendanceEntity extends AbstractEntity {
+
     private LocalDate date;
 
     @Enumerated(EnumType.STRING)

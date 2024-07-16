@@ -9,12 +9,13 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class AttendanceServiceImpl implements AttendanceService{
     private final AttendanceRepository attendanceRepository;
     private final StudentService studentService;
-    private PdfGenerationService pdfGenerationService;
+    private final PdfGenerationService pdfGenerationService;
 
     public AttendanceServiceImpl(AttendanceRepository attendanceRepository, StudentService studentService, PdfGenerationService pdfGenerationService) {
         this.attendanceRepository = attendanceRepository;
@@ -23,7 +24,7 @@ public class AttendanceServiceImpl implements AttendanceService{
     }
 
     @Override
-    public void recordAttendance(Long studentId, LocalDate date, AttendanceStatus attendanceStatus) {
+    public void recordAttendance(UUID studentId, LocalDate date, AttendanceStatus attendanceStatus) {
         StudentEntity student = studentService.getStudentById(studentId);
         if (student != null){
             AttendanceEntity attendance = new AttendanceEntity(student,date,attendanceStatus);
@@ -32,11 +33,11 @@ public class AttendanceServiceImpl implements AttendanceService{
     }
 
     @Override
-    public List<AttendanceEntity> getStudentAttendance(Long studentId) {
+    public List<AttendanceEntity> getStudentAttendance(UUID studentId) {
         return attendanceRepository.findByStudentId(studentId);
     }
 
-    public byte[] exportAttendanceReportToPdf(String startDate, String endDate, Long sectionId) throws DocumentException {
+    public byte[] exportAttendanceReportToPdf(String startDate, String endDate, UUID sectionId) throws DocumentException {
         List<AttendanceEntity> attendanceList = attendanceRepository.findByDateBetweenAndSection(startDate, endDate, sectionId);
         return pdfGenerationService.generatePdf(attendanceList);
     }

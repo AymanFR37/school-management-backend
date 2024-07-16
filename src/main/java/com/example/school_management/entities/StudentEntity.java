@@ -10,7 +10,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Entity
 @Table(name = "students")
 public class StudentEntity extends UserEntity {
@@ -19,10 +18,6 @@ public class StudentEntity extends UserEntity {
     private String address;
     private String gender;
     private LocalDate dateOfBirth;
-//    I could found the class from the section
-//    @ManyToOne
-//    @JoinColumn(name = "class_id")
-//    private ClassEntity studentClass;
     @ManyToOne
     @JoinColumn(name = "section_id")
     private SectionEntity section;

@@ -7,11 +7,12 @@ import org.springframework.data.jpa.repository.Query;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
-public interface AttendanceRepository extends JpaRepository<AttendanceEntity,Long> {
-    List<AttendanceEntity> findByStudentId(Long studentId);
+public interface AttendanceRepository extends JpaRepository<AttendanceEntity, UUID> {
+    List<AttendanceEntity> findByStudentId(UUID studentId);
 
     @Query(value = "select a from AttendanceEntity a join a.sectionEntity s " +
             "where s.id=:sectionId AND a.date between :startDate and :endDate")
-    List<AttendanceEntity> findByDateBetweenAndSection(String startDate, String endDate, Long sectionId);
+    List<AttendanceEntity> findByDateBetweenAndSection(String startDate, String endDate, UUID sectionId);
 }

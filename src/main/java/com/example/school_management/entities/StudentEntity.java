@@ -13,11 +13,8 @@ import java.util.List;
 @Entity
 @Table(name = "students")
 public class StudentEntity extends UserEntity {
-    private String firstName;
-    private String lastName;
     private String address;
     private String gender;
-    private LocalDate dateOfBirth;
     @ManyToOne
     @JoinColumn(name = "section_id")
     private SectionEntity section;

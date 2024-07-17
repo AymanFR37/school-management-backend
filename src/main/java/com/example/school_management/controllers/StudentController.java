@@ -2,7 +2,7 @@ package com.example.school_management.controllers;
 
 import com.example.school_management.entities.StudentEntity;
 import com.example.school_management.services.PdfGenerationService;
-import com.example.school_management.services.StudentService;
+import com.example.school_management.services.student.StudentService;
 import com.itextpdf.text.DocumentException;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.MediaType;

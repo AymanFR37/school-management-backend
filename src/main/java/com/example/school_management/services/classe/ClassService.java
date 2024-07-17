@@ -1,4 +1,4 @@
-package com.example.school_management.services;
+package com.example.school_management.services.classe;
 
 import com.example.school_management.dtos.ClassDto;
 import com.example.school_management.entities.ClassEntity;

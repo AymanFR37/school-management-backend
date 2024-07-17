@@ -1,4 +1,4 @@
-package com.example.school_management.services;
+package com.example.school_management.services.student;
 
 import com.example.school_management.entities.StudentEntity;
 

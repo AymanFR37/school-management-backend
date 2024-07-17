@@ -1,9 +1,11 @@
-package com.example.school_management.services;
+package com.example.school_management.services.attendance;
 
 import com.example.school_management.entities.AttendanceEntity;
 import com.example.school_management.entities.StudentEntity;
 import com.example.school_management.enums.AttendanceStatus;
 import com.example.school_management.repositories.AttendanceRepository;
+import com.example.school_management.services.PdfGenerationService;
+import com.example.school_management.services.student.StudentService;
 import com.itextpdf.text.DocumentException;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +14,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class AttendanceServiceImpl implements AttendanceService{
+public class AttendanceServiceImpl implements AttendanceService {
     private final AttendanceRepository attendanceRepository;
     private final StudentService studentService;
     private final PdfGenerationService pdfGenerationService;

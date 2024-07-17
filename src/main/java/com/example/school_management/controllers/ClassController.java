@@ -2,7 +2,7 @@ package com.example.school_management.controllers;
 
 import com.example.school_management.dtos.ClassDto;
 import com.example.school_management.entities.ClassEntity;
-import com.example.school_management.services.ClassService;
+import com.example.school_management.services.classe.ClassService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

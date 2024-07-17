@@ -1,4 +1,4 @@
-package com.example.school_management.services;
+package com.example.school_management.services.attendance;
 
 import com.example.school_management.entities.AttendanceEntity;
 import com.example.school_management.enums.AttendanceStatus;

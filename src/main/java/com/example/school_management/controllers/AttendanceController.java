@@ -2,7 +2,7 @@ package com.example.school_management.controllers;
 
 import com.example.school_management.entities.AttendanceEntity;
 import com.example.school_management.enums.AttendanceStatus;
-import com.example.school_management.services.AttendanceService;
+import com.example.school_management.services.attendance.AttendanceService;
 import com.itextpdf.text.DocumentException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;

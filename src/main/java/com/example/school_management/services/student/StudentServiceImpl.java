@@ -1,4 +1,4 @@
-package com.example.school_management.services;
+package com.example.school_management.services.student;
 
 import com.example.school_management.entities.ClassEntity;
 import com.example.school_management.entities.StudentEntity;
@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-public class StudentServiceImpl implements StudentService{
+public class StudentServiceImpl implements StudentService {
     private final StudentRepository studentRepository;
 
     public StudentServiceImpl(StudentRepository studentRepository) {

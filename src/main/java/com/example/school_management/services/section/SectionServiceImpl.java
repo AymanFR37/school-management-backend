@@ -1,4 +1,4 @@
-package com.example.school_management.services;
+package com.example.school_management.services.section;
 
 import com.example.school_management.dtos.ClassDto;
 import com.example.school_management.dtos.SectionDto;
@@ -9,7 +9,6 @@ import com.example.school_management.mappers.SectionMapper;
 import com.example.school_management.repositories.ClassRepository;
 import com.example.school_management.repositories.SectionRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,7 +17,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class SectionServiceImpl implements SectionService{
+public class SectionServiceImpl implements SectionService {
     protected SectionMapper sectionMapper;
     protected ClassMapper classMapper;
     private final SectionRepository sectionRepository;

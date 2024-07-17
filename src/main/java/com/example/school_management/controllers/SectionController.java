@@ -2,9 +2,7 @@ package com.example.school_management.controllers;
 
 import com.example.school_management.dtos.SectionDto;
 import com.example.school_management.entities.SectionEntity;
-import com.example.school_management.services.SectionService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
+import com.example.school_management.services.section.SectionService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

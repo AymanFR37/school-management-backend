@@ -1,11 +1,10 @@
-package com.example.school_management.services;
+package com.example.school_management.services.classe;
 
 import com.example.school_management.dtos.ClassDto;
 import com.example.school_management.entities.ClassEntity;
 import com.example.school_management.mappers.ClassMapper;
 import com.example.school_management.repositories.ClassRepository;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,7 +13,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class ClassServiceImpl implements ClassService{
+public class ClassServiceImpl implements ClassService {
     protected ClassMapper classMapper;
     private final ClassRepository classRepository;
 

@@ -1,4 +1,4 @@
-package com.example.school_management.services;
+package com.example.school_management.services.section;
 
 import com.example.school_management.dtos.SectionDto;
 import com.example.school_management.entities.SectionEntity;
